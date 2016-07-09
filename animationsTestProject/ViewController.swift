@@ -23,9 +23,8 @@ class ViewController: UIViewController {
 
 	@IBOutlet weak var magicButtton: UIButton!
 	
-	override func viewDidLoad() {
-		super.viewDidLoad()
-		
+	override func viewDidAppear(animated: Bool) {
+		super.viewDidAppear(animated)
 		layerSize = CGRectGetHeight(self.magicButtton.bounds)
 		
 		// increase the corner radius
@@ -42,9 +41,7 @@ class ViewController: UIViewController {
 		groupAnim.setValue("animations", forKey: "groupAnim")
 		groupAnim.animations = [cornerRadiusAnim, widthAnim, backgroundColorAnim]
 		groupAnim.duration = animDuration
-	}
-	
-	override func viewDidAppear(animated: Bool) {
+		
 		magicButtonPositionY = CGRectGetMidY(self.magicButtton.frame)
 		magicButtonPositionX = CGRectGetMidX(self.magicButtton.frame)
 	}
@@ -116,8 +113,7 @@ class ViewController: UIViewController {
 		self.magicButtton.layer.position = CGPoint(x: magicButtonPositionX, y: magicButtonPositionY)
 		self.magicButtton.layer.cornerRadius = layerSize*0.5
 		self.magicButtton.layer.addAnimation(groupAnim, forKey: nil)
-	}
-	
+	}	
 }
 
 
